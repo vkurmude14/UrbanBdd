@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cucumber</title>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<style>
+.cucumber-react .cucumber-status--passed {
+  color: #2CB14A;
+}
+.cucumber-react .cucumber-status--skipped {
+  color: #00A0CC;
+}
+.cucumber-react .cucumber-status--pending {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--undefined {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--ambiguous {
+  color: #F4EBFD;
+}
+.cucumber-react .cucumber-status--failed {
+  color: #BB0000;
+}
+.cucumber-react .cucumber-status--unknown {
+  color: #B6BECB;
+}
+.cucumber-react h1, .cucumber-react h2, .cucumber-react h3 {
+  padding: 0;
+  margin: 0;
+}
+.cucumber-react a {
+  color: inherit;
+}
+.cucumber-react .gherkin-document-list {
+  font: 14px "Open Sans", sans-serif;
+  color: #161C24;
+  background: #fff;
+  overflow-x: hidden;
+}
+.cucumber-react .cucumber-title {
+  margin-top: 0.3em;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.cucumber-react .cucumber-title__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-title__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-tags {
+  padding: 0;
+  margin-bottom: 0;
+}
+.cucumber-react .cucumber-tags .cucumber-tag {
+  display: inline;
+  list-style-type: none;
+  padding: 4px 8px 4px 8px;
+  margin-right: 6px;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+}
+.cucumber-react .cucumber-feature__icon {
+  padding-top: 0.35em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-description,
+.cucumber-react .cucumber-children {
+  margin-left: 1em;
+}
+.cucumber-react .cucumber-feature,
+.cucumber-react .cucumber-rule,
+.cucumber-react .cucumber-scenario,
+.cucumber-react .cucumber-background {
+  margin-bottom: 1em;
+}
+.cucumber-react .cucumber-steps {
+  list-style-type: none;
+  padding-left: 10px;
+}
+.cucumber-react .cucumber-steps .cucumber-step {
+  display: flex;
+}
+.cucumber-react .cucumber-steps .cucumber-step__status {
+  padding-top: 0.2em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-steps .cucumber-step__content {
+  flex-grow: 1;
+  max-width: calc(100% - 1.5em);
+}
+.cucumber-react .cucumber-steps .cucumber-step__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-steps .cucumber-step__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-steps .cucumber-step__param {
+  font-weight: normal;
+  font-style: italic;
+}
+.cucumber-react .cucumber-table {
+  border-collapse: collapse;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.cucumber-react .cucumber-table__header-cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell__status {
+  padding: 0.5em 3px 3px 3px;
+}
+.cucumber-react .cucumber-table__cell__step {
+  flex-grow: 1;
+}
+.cucumber-react .cucumber-code {
+  padding: 0.25em;
+  background-color: #ebebeb;
+}
+.cucumber-react .cucumber-error {
+  padding: 0.5em;
+  margin: 0;
+  overflow-x: auto;
+}
+.cucumber-react .cucumber-no-documents {
+  font: 14px "Open Sans", sans-serif;
+}
+.cucumber-react .cucumber-attachment__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-attachment__image {
+  max-width: 100%;
+  margin-top: 1em;
+}
+.cucumber-react .cucumber-attachment__text {
+  background-color: #ebebeb;
+  padding: 0.5em;
+  overflow-x: auto;
+}
+.cucumber-react .cucumber-anchor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 0.3em;
+}
+.cucumber-react .cucumber-anchor__link {
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+  position: absolute;
+  left: -20px;
+  display: flex;
+  align-items: center;
+}
+.cucumber-react .cucumber-anchor__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-anchor:hover a {
+  opacity: 1;
+  width: max-content;
+  transition: all 0.35s ease-in-out;
+}
+.cucumber-react .cucumber-anchor > * {
+  height: 100%;
+  margin-top: 0px;
+}
+
+.cucumber-report-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font: 11px "Open Sans", sans-serif;
+  margin-bottom: 1em;
+}
+.cucumber-report-header > * {
+  padding: 1em;
+}
+.cucumber-report-header .cucumber-status-filter {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-status-filter table {
+  width: 100%;
+}
+.cucumber-report-header .cucumber-execution-data {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-search-bar {
+  border-right: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search input {
+  padding: 0.4em;
+  border-radius: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search button {
+  height: 2.2em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar p.help {
+  font-size: 80%;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul {
+  display: inline;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li input {
+  display: inline-block;
+  width: auto;
+  height: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li label {
+  padding-right: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-execution-data {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: auto;
+  }
+}
+.accordion {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.accordion__item + .accordion__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+    background-color: #f4f4f4;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+}
+
+.accordion__button:hover {
+    background-color: #ddd;
+}
+
+.accordion__button:before {
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 10px;
+    margin-right: 12px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.accordion__button[aria-expanded='true']::before,
+.accordion__button[aria-selected='true']::before {
+    transform: rotate(45deg);
+}
+
+.accordion__panel {
+    padding: 20px;
+    animation: fadein 0.35s ease-in;
+}
+
+	</style>
+</head>
+<body>
+<div id="content">
+</div>
+<script>
+window.CUCUMBER_MESSAGES = [{"meta":{"protocolVersion":"14.0.1","implementation":{"name":"cucumber-jvm","version":"6.10.2"},"runtime":{"name":"OpenJDK 64-Bit Server VM","version":"15.0.2+7-27"},"os":{"name":"Windows 10"},"cpu":{"name":"amd64"}}},{"testRunStarted":{"timestamp":{"seconds":"1632721128","nanos":97064600}}},{"source":{"uri":"file:///C:/Users/vkurm/Downloads/UrbanLadderBDD/Features/all.feature","data":"Feature: Checking Sign up feature of the urbanladder webpage\r\nScenario Outline: Verify if user is able to sign up. \r\n\tGiven User first opens the website \r\n\tWhen User click on sign up option \r\n\tThen User should fill the \u003cemailid\u003e and \u003cpassword\u003e click sign up button\r\n\t\r\n\tExamples:\r\n\t|emailid \t\t\t    |password  |\r\n\t|vkurmude17@gmail.com   |Vinit@1998|\r\n\t\r\nScenario Outline: Verify if user is able to Log in. \r\n\tGiven User first redirects to the website \r\n\tWhen User click on Log in option \r\n\tThen User should fill the \u003cemailid\u003e and \u003cpassword\u003e click log in button\r\n\t\r\n\tExamples:\r\n\t|emailid \t\t\t    |password  |\r\n\t|vkurmude17@gmail.com   |Vinit@1998|\r\n\r\nScenario Outline: Verify if user is able to verify email \r\n\tGiven User is logged in on homepage\r\n\tWhen User click on profile option\r\n\tThen User should be able  to see user email id\r\n\t\r\nScenario Outline: Verify if user is able to search. \r\n\tGiven User is on the website \r\n\tWhen User click on search box \r\n\tThen User should fill text field with \u003cProductname\u003e\r\n\tExamples:\r\n\t|Productname|    \r\n\t|Sofa\t\t|\r\n\t|Bed\t\t|\r\n\t\r\nScenario Outline: Verify if store is there \r\n\tGiven User first goes to the website urbanladder \r\n\tWhen User click on store option \r\n\tThen User should see there\r\n\r\n\t\r\nScenario Outline: Verify if order tracking is working \r\n\tGiven User first goes to the website named urbanladder\r\n\tWhen User click on track order option and enter \u003ctrackid\u003e \u003cmobno\u003e details\r\n\tThen User should be able to track shipment\r\n\tExamples:\r\n\t|trackid        |mobno        |\r\n\t|546546654\t\t|7020284026\t  |\r\n\t\r\nScenario Outline: Verify if gift card is working \r\n\tGiven User first comes on the website \r\n\tWhen User click on goftcard option \r\n\tThen User should be redirected to giftcard section section\r\n\t\r\nScenario Outline: Verify if subscribe feature is working \r\n\tGiven User first visits urbanladder\r\n\tWhen enters \u003cemail\u003e and clicks on subscribe button\r\n\tThen User should be subscribed\r\n\t\r\n\tExamples:\r\n\t|email                 |\r\n\t|vkurmude14@gmail.com  |\r\n\r\nScenario Outline: Verify if help btn is working \r\n\tGiven User first goes to the website \r\n\tWhen User click on help btn option \r\n\tThen User should be redirected to QA section\r\n\r\nScenario Outline: Verify if user is able to Log out. \r\n\tGiven User should fill the \u003cemailid\u003e and \u003cpassword\u003e click login in button\r\n\tWhen User click on Log out option \r\n\tThen user should be logged out\r\n\t\r\n\tExamples:\r\n\t|emailid \t\t\t    |password  |\r\n\t|vkurmude17@gmail.com   |Vinit@1998|\r\n\t\r\n","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///C:/Users/vkurm/Downloads/UrbanLadderBDD/Features/all.feature","feature":{"location":{"line":1,"column":1},"language":"en","keyword":"Feature","name":"Checking Sign up feature of the urbanladder webpage","children":[{"scenario":{"location":{"line":2,"column":1},"keyword":"Scenario Outline","name":"Verify if user is able to sign up.","steps":[{"location":{"line":3,"column":2},"keyword":"Given ","text":"User first opens the website","id":"4d5bd26f-b1a7-4b37-a36b-18180fdd335d"},{"location":{"line":4,"column":2},"keyword":"When ","text":"User click on sign up option","id":"a08ae8f8-8764-464b-8ea0-4bf14a6ba2be"},{"location":{"line":5,"column":2},"keyword":"Then ","text":"User should fill the \u003cemailid\u003e and \u003cpassword\u003e click sign up button","id":"1d109bc1-a5d2-4bee-85f6-0986986a8e98"}],"examples":[{"location":{"line":7,"column":2},"keyword":"Examples","tableHeader":{"location":{"line":8,"column":2},"cells":[{"location":{"line":8,"column":3},"value":"emailid"},{"location":{"line":8,"column":19},"value":"password"}],"id":"286e0dfe-4abd-40a5-b3ea-2c741f0cb720"},"tableBody":[{"location":{"line":9,"column":2},"cells":[{"location":{"line":9,"column":3},"value":"vkurmude17@gmail.com"},{"location":{"line":9,"column":27},"value":"Vinit@1998"}],"id":"8f176130-7341-4a38-9337-4a0c1cf4e691"}],"id":"aa587084-3b46-4ac3-85f4-dd5c01990456"}],"id":"febd3565-ca9e-4735-91dc-086705c78000"}},{"scenario":{"location":{"line":11,"column":1},"keyword":"Scenario Outline","name":"Verify if user is able to Log in.","steps":[{"location":{"line":12,"column":2},"keyword":"Given ","text":"User first redirects to the website","id":"c6bea3d0-6428-442c-af95-d42fa4b27670"},{"location":{"line":13,"column":2},"keyword":"When ","text":"User click on Log in option","id":"7f01048a-f039-43b5-88b9-9f63ce35724b"},{"location":{"line":14,"column":2},"keyword":"Then ","text":"User should fill the \u003cemailid\u003e and \u003cpassword\u003e click log in button","id":"d75612ad-1675-40fa-bf4e-1dd5f0c37b56"}],"examples":[{"location":{"line":16,"column":2},"keyword":"Examples","tableHeader":{"location":{"line":17,"column":2},"cells":[{"location":{"line":17,"column":3},"value":"emailid"},{"location":{"line":17,"column":19},"value":"password"}],"id":"27452308-d7c8-47d9-8b76-302335085df0"},"tableBody":[{"location":{"line":18,"column":2},"cells":[{"location":{"line":18,"column":3},"value":"vkurmude17@gmail.com"},{"location":{"line":18,"column":27},"value":"Vinit@1998"}],"id":"fb2a07d9-9e04-48e1-9ab8-c8caeb1edc89"}],"id":"5b639eee-b86e-4e1b-bf6d-aa4cfa652dfa"}],"id":"27cd73b8-df11-4138-8e16-706b1035701a"}},{"scenario":{"location":{"line":20,"column":1},"keyword":"Scenario Outline","name":"Verify if user is able to verify email","steps":[{"location":{"line":21,"column":2},"keyword":"Given ","text":"User is logged in on homepage","id":"72597f96-96de-4807-aa2a-8c838adbf673"},{"location":{"line":22,"column":2},"keyword":"When ","text":"User click on profile option","id":"41f0f303-9b1c-4be2-bd45-a5ba6e8236c6"},{"location":{"line":23,"column":2},"keyword":"Then ","text":"User should be able  to see user email id","id":"b374215c-eb93-4e1b-b524-dee277036bd9"}],"id":"b553c8d5-6551-4771-ac66-a220dee74245"}},{"scenario":{"location":{"line":25,"column":1},"keyword":"Scenario Outline","name":"Verify if user is able to search.","steps":[{"location":{"line":26,"column":2},"keyword":"Given ","text":"User is on the website","id":"ff9282ca-fdeb-4a3a-9b6c-abadd171b249"},{"location":{"line":27,"column":2},"keyword":"When ","text":"User click on search box","id":"242bbb9f-c0dd-47fa-8702-acab6695be2c"},{"location":{"line":28,"column":2},"keyword":"Then ","text":"User should fill text field with \u003cProductname\u003e","id":"3389a122-7a84-420b-8a76-89a549a21aac"}],"examples":[{"location":{"line":29,"column":2},"keyword":"Examples","tableHeader":{"location":{"line":30,"column":2},"cells":[{"location":{"line":30,"column":3},"value":"Productname"}],"id":"a8c1a2c8-701d-424d-bffd-dd49155e0e4c"},"tableBody":[{"location":{"line":31,"column":2},"cells":[{"location":{"line":31,"column":3},"value":"Sofa"}],"id":"4609525c-eaa0-4a95-b3c8-a256e3671175"},{"location":{"line":32,"column":2},"cells":[{"location":{"line":32,"column":3},"value":"Bed"}],"id":"480b1df7-842c-48cb-a454-60779a797eb2"}],"id":"32c38f47-02a2-4c65-9d71-519e9819a7d5"}],"id":"7e6be074-bef7-4b16-8d2e-54e2562724bf"}},{"scenario":{"location":{"line":34,"column":1},"keyword":"Scenario Outline","name":"Verify if store is there","steps":[{"location":{"line":35,"column":2},"keyword":"Given ","text":"User first goes to the website urbanladder","id":"6dff3093-d714-4212-96e1-3a033e2f3dc1"},{"location":{"line":36,"column":2},"keyword":"When ","text":"User click on store option","id":"a47af7c4-65f3-4943-b3a5-843e8c6106df"},{"location":{"line":37,"column":2},"keyword":"Then ","text":"User should see there","id":"641e8a5f-6708-46fb-8bcc-f956c07291ba"}],"id":"47573678-7d7f-48f3-b589-a56254b03a2a"}},{"scenario":{"location":{"line":40,"column":1},"keyword":"Scenario Outline","name":"Verify if order tracking is working","steps":[{"location":{"line":41,"column":2},"keyword":"Given ","text":"User first goes to the website named urbanladder","id":"f5dc33d6-e7f0-41c0-bc45-97a9fcde4a93"},{"location":{"line":42,"column":2},"keyword":"When ","text":"User click on track order option and enter \u003ctrackid\u003e \u003cmobno\u003e details","id":"ed4c7494-c306-40a2-b4c2-f90a0f2661e6"},{"location":{"line":43,"column":2},"keyword":"Then ","text":"User should be able to track shipment","id":"a128ab51-4bb6-4a11-8ec4-f4c1984659a0"}],"examples":[{"location":{"line":44,"column":2},"keyword":"Examples","tableHeader":{"location":{"line":45,"column":2},"cells":[{"location":{"line":45,"column":3},"value":"trackid"},{"location":{"line":45,"column":19},"value":"mobno"}],"id":"4441f996-26b1-41a5-9091-9953e399559c"},"tableBody":[{"location":{"line":46,"column":2},"cells":[{"location":{"line":46,"column":3},"value":"546546654"},{"location":{"line":46,"column":15},"value":"7020284026"}],"id":"5c0e28f1-11e2-4a14-8a78-917ca5c08a07"}],"id":"2f695565-1421-4c3c-9900-050c79f04495"}],"id":"99bfe094-ae09-4f0c-9a1e-5a1e11eab5ec"}},{"scenario":{"location":{"line":48,"column":1},"keyword":"Scenario Outline","name":"Verify if gift card is working","steps":[{"location":{"line":49,"column":2},"keyword":"Given ","text":"User first comes on the website","id":"8a5519a1-0bd9-4c15-8cd3-4218455645db"},{"location":{"line":50,"column":2},"keyword":"When ","text":"User click on goftcard option","id":"c8590b51-ff46-4936-a29b-2fcb6a82ba83"},{"location":{"line":51,"column":2},"keyword":"Then ","text":"User should be redirected to giftcard section section","id":"97bcf575-e748-441e-a5f0-69f995f66064"}],"id":"34030c76-02d5-453d-8931-6bb1849eaaa6"}},{"scenario":{"location":{"line":53,"column":1},"keyword":"Scenario Outline","name":"Verify if subscribe feature is working","steps":[{"location":{"line":54,"column":2},"keyword":"Given ","text":"User first visits urbanladder","id":"7bdfc3dd-c59f-4f4d-9f3b-599679a4c98f"},{"location":{"line":55,"column":2},"keyword":"When ","text":"enters \u003cemail\u003e and clicks on subscribe button","id":"fcd42049-26e2-4ce6-b38d-d93bfe2120e7"},{"location":{"line":56,"column":2},"keyword":"Then ","text":"User should be subscribed","id":"af385cd6-80df-4a91-93cb-cfd005b5dd83"}],"examples":[{"location":{"line":58,"column":2},"keyword":"Examples","tableHeader":{"location":{"line":59,"column":2},"cells":[{"location":{"line":59,"column":3},"value":"email"}],"id":"d623ac31-54e0-47ec-9a00-8b60be815292"},"tableBody":[{"location":{"line":60,"column":2},"cells":[{"location":{"line":60,"column":3},"value":"vkurmude14@gmail.com"}],"id":"84c88827-9b7a-4295-9346-2c68274c13d8"}],"id":"8b553b3e-ca92-4df0-8ef1-c5592bf1a9aa"}],"id":"6945783b-df6b-4884-abd7-d701eecc8e38"}},{"scenario":{"location":{"line":62,"column":1},"keyword":"Scenario Outline","name":"Verify if help btn is working","steps":[{"location":{"line":63,"column":2},"keyword":"Given ","text":"User first goes to the website","id":"119ca3fe-11f6-4aa4-a93f-0ed5c6d13e86"},{"location":{"line":64,"column":2},"keyword":"When ","text":"User click on help btn option","id":"a5f557cf-b4f0-4ea5-98d6-e1220d30ccd8"},{"location":{"line":65,"column":2},"keyword":"Then ","text":"User should be redirected to QA section","id":"4be10f95-fe71-4b68-8cd7-08681fd29522"}],"id":"d8486d92-96e4-4d02-8913-17db0664f35a"}},{"scenario":{"location":{"line":67,"column":1},"keyword":"Scenario Outline","name":"Verify if user is able to Log out.","steps":[{"location":{"line":68,"column":2},"keyword":"Given ","text":"User should fill the \u003cemailid\u003e and \u003cpassword\u003e click login in button","id":"99fef67f-a2d9-4ea2-b315-efe4c14e0240"},{"location":{"line":69,"column":2},"keyword":"When ","text":"User click on Log out option","id":"628b787e-4ecf-4e7f-a44f-34543ba87cc9"},{"location":{"line":70,"column":2},"keyword":"Then ","text":"user should be logged out","id":"13789093-db31-4c19-a709-015b4a8ca0c6"}],"examples":[{"location":{"line":72,"column":2},"keyword":"Examples","tableHeader":{"location":{"line":73,"column":2},"cells":[{"location":{"line":73,"column":3},"value":"emailid"},{"location":{"line":73,"column":19},"value":"password"}],"id":"a0e67fdf-8a34-4a24-890d-00938b23f68a"},"tableBody":[{"location":{"line":74,"column":2},"cells":[{"location":{"line":74,"column":3},"value":"vkurmude17@gmail.com"},{"location":{"line":74,"column":27},"value":"Vinit@1998"}],"id":"2c3feb92-d107-489b-8131-313721b84f6b"}],"id":"3e84d901-93c5-4293-87cc-8fb9b0dacd9f"}],"id":"27d4f9b1-c22d-4bd7-80b9-fb0bb5959dea"}}]}}},{"pickle":{"id":"147b33a3-eeb1-46ef-9da0-c695f9c902e6","uri":"file:///C:/Users/vkurm/Downloads/UrbanLadderBDD/Features/all.feature","name":"Verify if user is able to sign up.","language":"en","steps":[{"text":"User first opens the website","id":"6ec5c91b-3b7b-4e18-8e77-be131638241a","astNodeIds":["4d5bd26f-b1a7-4b37-a36b-18180fdd335d","8f176130-7341-4a38-9337-4a0c1cf4e691"]},{"text":"User click on sign up option","id":"07b3f93f-7612-4e52-9dbf-ffac1589238c","astNodeIds":["a08ae8f8-8764-464b-8ea0-4bf14a6ba2be","8f176130-7341-4a38-9337-4a0c1cf4e691"]},{"text":"User should fill the vkurmude17@gmail.com and Vinit@1998 click sign up button","id":"0f26ae28-5eea-421b-9be9-4f70259c531c","astNodeIds":["1d109bc1-a5d2-4bee-85f6-0986986a8e98","8f176130-7341-4a38-9337-4a0c1cf4e691"]}],"astNodeIds":["febd3565-ca9e-4735-91dc-086705c78000","8f176130-7341-4a38-9337-4a0c1cf4e691"]}},{"pickle":{"id":"dd5af110-b939-48f8-a6d4-59dfd60f33e1","uri":"file:///C:/Users/vkurm/Downloads/UrbanLadderBDD/Features/all.feature","name":"Verify if user is able to Log in.","language":"en","steps":[{"text":"User first redirects to the website","id":"32d59065-1d12-4f6c-bbda-c976d98e93eb","astNodeIds":["c6bea3d0-6428-442c-af95-d42fa4b27670","fb2a07d9-9e04-48e1-9ab8-c8caeb1edc89"]},{"text":"User click on Log in option","id":"a9ebd8cd-20a3-4ade-84b7-d849f0a9567a","astNodeIds":["7f01048a-f039-43b5-88b9-9f63ce35724b","fb2a07d9-9e04-48e1-9ab8-c8caeb1edc89"]},{"text":"User should fill the vkurmude17@gmail.com and Vinit@1998 click log in button","id":"df33be83-6927-4b45-9789-7cf666df0e6d","astNodeIds":["d75612ad-1675-40fa-bf4e-1dd5f0c37b56","fb2a07d9-9e04-48e1-9ab8-c8caeb1edc89"]}],"astNodeIds":["27cd73b8-df11-4138-8e16-706b1035701a","fb2a07d9-9e04-48e1-9ab8-c8caeb1edc89"]}},{"pickle":{"id":"beb5137a-2310-4413-bb3e-c362e9183854","uri":"file:///C:/Users/vkurm/Downloads/UrbanLadderBDD/Features/all.feature","name":"Verify if user is able to verify email","language":"en","steps":[{"text":"User is logged in on homepage","id":"efd6ee3a-e925-4180-ba6e-79b9d77e454c","astNodeIds":["72597f96-96de-4807-aa2a-8c838adbf673"]},{"text":"User click on profile option","id":"3642e245-4076-4fb4-99fa-f62ca4035612","astNodeIds":["41f0f303-9b1c-4be2-bd45-a5ba6e8236c6"]},{"text":"User should be able  to see user email id","id":"2e4f2acb-3075-4f32-af5a-03c41aeed853","astNodeIds":["b374215c-eb93-4e1b-b524-dee277036bd9"]}],"astNodeIds":["b553c8d5-6551-4771-ac66-a220dee74245"]}},{"pickle":{"id":"d8f79f57-a917-4558-9946-7e64ef8b1d35","uri":"file:///C:/Users/vkurm/Downloads/UrbanLadderBDD/Features/all.feature","name":"Verify if user is able to search.","language":"en","steps":[{"text":"User is on the website","id":"d59de9f9-d8df-4fe1-960c-54ef03539d98","astNodeIds":["ff9282ca-fdeb-4a3a-9b6c-abadd171b249","4609525c-eaa0-4a95-b3c8-a256e3671175"]},{"text":"User click on search box","id":"05910412-891e-4639-91e7-f97c504dd2c6","astNodeIds":["242bbb9f-c0dd-47fa-8702-acab6695be2c","4609525c-eaa0-4a95-b3c8-a256e3671175"]},{"text":"User should fill text field with Sofa","id":"c6e7bd8f-2202-4331-aa04-e95a6bf49d8f","astNodeIds":["3389a122-7a84-420b-8a76-89a549a21aac","4609525c-eaa0-4a95-b3c8-a256e3671175"]}],"astNodeIds":["7e6be074-bef7-4b16-8d2e-54e2562724bf","4609525c-eaa0-4a95-b3c8-a256e3671175"]}},{"pickle":{"id":"6a23cf23-fd0d-4af0-97bc-512e19203d1a","uri":"file:///C:/Users/vkurm/Downloads/UrbanLadderBDD/Features/all.feature","name":"Verify if user is able to search.","language":"en","steps":[{"text":"User is on the website","id":"d1aed8a1-ce48-4d3a-b724-8fdadfb8f3a5","astNodeIds":["ff9282ca-fdeb-4a3a-9b6c-abadd171b249","480b1df7-842c-48cb-a454-60779a797eb2"]},{"text":"User click on search box","id":"9025113a-f0fa-4c04-a506-fbffdfbd961f","astNodeIds":["242bbb9f-c0dd-47fa-8702-acab6695be2c","480b1df7-842c-48cb-a454-60779a797eb2"]},{"text":"User should fill text field with Bed","id":"469d1c40-a44b-4c04-b62f-c4bccae701dd","astNodeIds":["3389a122-7a84-420b-8a76-89a549a21aac","480b1df7-842c-48cb-a454-60779a797eb2"]}],"astNodeIds":["7e6be074-bef7-4b16-8d2e-54e2562724bf","480b1df7-842c-48cb-a454-60779a797eb2"]}},{"pickle":{"id":"07afe55f-16c3-4c71-8080-5bc13536b87a","uri":"file:///C:/Users/vkurm/Downloads/UrbanLadderBDD/Features/all.feature","name":"Verify if store is there","language":"en","steps":[{"text":"User first goes to the website urbanladder","id":"3bc666c9-1de7-4487-9326-9c1cc1ba9970","astNodeIds":["6dff3093-d714-4212-96e1-3a033e2f3dc1"]},{"text":"User click on store option","id":"3308e7ff-e0b1-4a13-859f-8f2208561836","astNodeIds":["a47af7c4-65f3-4943-b3a5-843e8c6106df"]},{"text":"User should see 
